@@ -1,0 +1,17 @@
+README for Plate Project
+
+Goal: Convert data from format outputted by a laboratory machine to an easier format to manipulate
+
+Collaborators: Haidar Khan; Babar Khan, Azer Khan, Shuaib Peters, Badar Khan, Taimur Khan
+
+Project is divided into three main components:
+
+--Parser module
+-Parses input data and create data objects
+
+--Data Structure
+-Defines a general class of objects for data storage
+
+--Printer Module
+-Prints data objects to an output file in any desired format
+
