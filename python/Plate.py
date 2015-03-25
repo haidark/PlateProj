@@ -8,22 +8,22 @@
 # in addition to some test code
 ###################################################
 
-# The Plate class models a 96-well microplate (or other plates) at \
+# The Plate class models a 96-well microplate (or any other plates) at \
 # a specific time and temperature
 #------------------------------------------------------------------
 # The Plate class has the following attributes:
 #	-numRows - The number of rows on the plate (int > 0)
 #	-numCols - The number of columns on the plate (int > 0)
-#	-temp - The temperature the plate was at when recording took place (float)
-#	-time - The time when the recording took place TODO: secs/mins? (float)
+#	-temp - The temperature the plate was at when recording took place (int/float)
+#	-time - The time when the recording took place TODO: secs/mins? (int/float)
 #	-data - a matrix of numRows rows and numCols columns containg well data
 #		(list(list(float))) or numpy matrix?
 #------------------------------------------------------------------
 # The Plate class has the following methods:
 #	-__init__ - constructor for Plate objects
 #		arguments (args) - (numRows, numCols, temp, time)
-#	-fillData - fills data matrix with values from a data string
-#		args - (dataStr)
+#	-setData - sets an element ([row][col]) in the data matrix
+#		args - (value, row, col)
 #------------------------------------------------------------------
 #Plate Class Declaration
 class Plate:
@@ -44,7 +44,7 @@ class Plate:
 			#initialize data to a matrix of zeros
 			#Using list comprehensions (trust me this works)
 			self.data = [[0 for x in range(numCols)] for y in range(numRows)]
-	# sets the element in 'data' at the 'row'-th row and the 'col'-th column to 'value'
+	#sets the element in 'data' at the 'row'-th row and the 'col'-th column to 'value'
 	def setData(self, value, row, col):
 		#Error checking on input
 		if row < 0 or row > self.numRows:
@@ -58,6 +58,7 @@ class Plate:
 			self.data[row][col] = value
 #------------------------------------------------------------------
 #Testing code for Plate Class
+#(only runs if running this file directly)
 if __name__ == "__main__":
 	p1 = Plate(2,3, 15, 2.2)
 	p1.setData(100, 1,2)

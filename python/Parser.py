@@ -1,1 +1,36 @@
-print "hello Shuaib"
+###################################################
+#Filename: Parser.py
+#Author: Haidar Khan, Shuaib Peters
+#Date: 3/24/15
+###################################################
+# Notes: (Anything after a '#' is a comment)
+# This file contains the function which creates a list of Plate objects \
+# from an xml file
+###################################################
+#HK - DO NOT MODIFY THIS CODE:
+from Plate import Plate
+import random
+#make a new plate, 5 rows, 6 columns at time 13.37 and temp 100 degrees
+plate = Plate(5,6, 13.37, 100.0)
+#fill it with random numbers and print the desired output
+for i in range(5):
+	for j in range(6):
+		plate.setData(random.uniform(0,10), i,j)
+		print plate.data[i][j]
+#HK - END DO NOT MODIFY THIS CODE
+#####################################################
+
+#Assignment for Shuaib Peters
+# Before we start coding, you need to learn more about the XML format for storing data
+#I have made a simplified xml document that more or less resembles the form of the \
+#data we will be working with. 
+#TODO: Study this file carefully and try to draw a tree that resembles the structure \
+#of the file similar to the trees I drew during our last meeting. (on paper)
+
+#TODO: once you have an understanding of the structure of the XML tree, use the pyton XML parser \
+#(documentation here: https://docs.python.org/2/library/xml.etree.elementtree.html) to read \
+# the test.xml file into python.
+
+#TODO: After you have done that, use the resulting tree to print the number of wells in the test.xml file.
+
+
