@@ -10,13 +10,12 @@
 #HK - DO NOT MODIFY THIS CODE:
 from Plate import Plate
 import random
-#make a new plate, 5 rows, 6 columns at time 13.37 and temp 100 degrees
-plate = Plate(5,6, 13.37, 100.0)
+#make a new plate, at time 13.37, temp 100 degrees, with 30 wells
+plate = Plate(13.37, 100.0, 6)
 #fill it with random numbers and print the desired output
-for i in range(5):
-	for j in range(6):
-		plate.setData(random.uniform(0,10), i,j)
-		print plate.data[i][j]
+for i in range(6):
+	plate.setData(random.uniform(0,10), i)
+plate.printCSV()
 #HK - END DO NOT MODIFY THIS CODE
 #####################################################
 
