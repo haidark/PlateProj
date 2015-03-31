@@ -35,6 +35,6 @@ plate.printCSV()
 #Imports the test file as an Element tree
 import test as ET
 
-tree = ET.parse('noOfWells_microvavePlateData.xml')
+tree = ET.parse('noOfWells_microplateData.xml')
 #Gets root from test file
-root = tree.getroot() 
+root = tree.getroot()
