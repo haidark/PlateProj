@@ -33,8 +33,11 @@ plate.printCSV()
 #TODO: After you have done that, use the resulting tree to print the number of wells in the test.xml file.
 
 #Imports the test file as an Element tree
+#HKK: NO! this was correct before... This imports the parsing module that we will be using!
 import test as ET
 
+#HKK: This line is where test.xml is read as an element tree... but the filename is wrong here
 tree = ET.parse('noOfWells_microvavePlateData.xml')
+
 #Gets root from test file
 root = tree.getroot() 
