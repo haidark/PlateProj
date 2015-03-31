@@ -32,7 +32,9 @@ plate.printCSV()
 
 #TODO: After you have done that, use the resulting tree to print the number of wells in the test.xml file.
 
+#Imports the test file as an Element tree
+import test as ET
 
-import xml.etree.ElementTree as ET
 tree = ET.parse('noOfWells_microvavePlateData.xml')
+#Gets root from test file
 root = tree.getroot() 
