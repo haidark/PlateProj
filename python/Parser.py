@@ -34,14 +34,11 @@ plate.printCSV()
 
 #Imports the test file as an Element tree
 #HKK: NO! this was correct before... This imports the parsing module that we will be using!
-import test as ET
 
-<<<<<<< HEAD
-tree = ET.parse('noOfWells_microplateData.xml')
-=======
+import xml.etree.ElementTree as ET
+
 #HKK: This line is where test.xml is read as an element tree... but the filename is wrong here
-tree = ET.parse('noOfWells_microvavePlateData.xml')
+tree = ET.parse('test.xml')
 
->>>>>>> origin/master
 #Gets root from test file
 root = tree.getroot()
