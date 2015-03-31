@@ -42,3 +42,9 @@ tree = ET.parse('test.xml')
 
 #Gets root from test file
 root = tree.getroot()
+
+root.tag
+root.attrib
+
+for child in root:
+	print child.tag,child.text
