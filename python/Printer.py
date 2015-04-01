@@ -27,10 +27,15 @@ plate.printCSV()
 #Here is the skeleton code for the function called 'printPlate'
 def printPlate(P):
 	#TODO: Error checking on the input
-	if not (isinstance(P, Plate))
+	if not (isinstance(P, plate)):
 		print "Sorry, not a valid input"
-	else 
-		print 
+	else: 
+		p1 = Plate(13.36, 100.0, 6)
+		p1.data = (100,3)
+		print 'Time  ', p1.time
+		print 'Temp  ', p1.temp
+		print p1.data
+
 	#checking if it is an instance of the Plate class is sufficient
 
 	#TODO: get the number of wells in the plate
