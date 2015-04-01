@@ -43,8 +43,26 @@ tree = ET.parse('test.xml')
 #Gets root from test file
 root = tree.getroot()
 
-root.tag
-root.attrib
+#Cool, now we have the root of the tree.
+# the root of the tree corresponds to the <microplate> tag in the file.
+#dont believe me? look at what this prints
+print root.tag
+#now we want to get the child of <microplate> that has the tag <noOfWells>
+#here is how we get a child by their tag name
+wellsElem = root.find('noOfWells')
+#that searches the children of root for the child with the tag 'noOfWells'
+#to prove I got it, ill print the tag and the text inside the tag
+print wellsElem.tag
+print wellsElem.text
 
-for child in root:
-	print child.tag,child.text
+
+
+
+
+
+#put this away for now
+# root.tag
+# root.attrib
+
+#for child in root:
+	#print child.tag,child.text
