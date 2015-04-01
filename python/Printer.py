@@ -50,7 +50,7 @@ def printPlate(P):
 
 		#perfect! this is a great for loop
 		for well in range(0, numWells):
-		 	stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
+		 	stringValue = stringValue + str(P.getWellValue(well)) + str(", ")
 
 		#removed indentation here so it doesnt print out all the substrings.
 		print stringValue
