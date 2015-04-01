@@ -26,49 +26,37 @@ plate.printCSV()
 #---------------------------------------------------
 #Here is the skeleton code for the function called 'printPlate'
 def printPlate(P):
-	#TODO: Error checking on the input
+	#checking if it is an instance of the Plate class 
 	if not (isinstance(P, Plate)):
 		print "Sorry, not a valid input"
 	else: 
-		p1 = Plate(13.36, 100.0, 6)
+		#You dont need to create a new plate, 
+		#I passed one to you and you made sure it was a plate using the error checking code!!!
 
-		#set data for well 1 =23
-		p1.setData (23, 0)
-		#set data for well 2 =13
-		p1.setData (13, 1)
-		#set data for well 3 =43
-		p1.setData (43, 2)
-		#set data for well 4 =5
-		p1.setData (5, 3)
-		#set data for well 5 =76
-		p1.setData (76, 4)
-		#set data for well 6 =54
-		p1.setData (54, 5)
-		#find out how many wells this plate has
 
-		numWells = p1.getNumberOfWells()
+		# get the number of wells in the plate
+		#You can use Bayah's accessor functions to get the number of wells, (totally unnecessary)
+		numWells = P.getNumberOfWells()
 
-		stringValue = str("")
+		#or you can just get them using the '.' operator
+		numWells = P.numWells
 
+
+		# Print out the data as a single row of comma separated values
+		# this works, but ...
+		stringValue = str("") 
+		#this is cleaner:
+		stringVale = ""
+
+		#perfect! this is a great for loop
 		for well in range(0, numWells):
-		 stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
+		 	stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
 
-		 print stringValue
-	
-	#checking if it is an instance of the Plate class is sufficient
-
-	#TODO: get the number of wells in the plate
-
-	#TODO: Print out the data as a single row of comma separated values
-	# Think of our plate (2x3) with 6 wells\
-	# letters indexing rows and numbers indexing columns then;
-	# Our data is in this order: A1, A2, A3, B1, B2, B3,
-	# NOT ths order: A1, B1, A2, B2, A3, B3
-
+		#removed indentation here so it doesnt print out all the substrings.
+		print stringValue
 
 	#You are done; to verify your results, make sure they match with the order \
 	#That I printed out earlier in this file.
-
 
 
 #---------------------------------------------------
