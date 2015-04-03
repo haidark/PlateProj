@@ -29,6 +29,7 @@ def printPlate(P):
 	#TODO: Error checking on the input
 	if not (isinstance(P, Plate)):
 		print "Sorry, not a valid input"
+		#checking if it is an instance of the Plate class is sufficient
 	else: 
 		p1 = Plate(13.36, 100.0, 6)
 
@@ -36,7 +37,7 @@ def printPlate(P):
 		p1.setData (23, 0)
 		#set data for well 2 =13
 		p1.setData (13, 1)
-		#set data for well 3 =43
+		#set data for well 3 =43 		
 		p1.setData (43, 2)
 		#set data for well 4 =5
 		p1.setData (5, 3)
@@ -47,19 +48,17 @@ def printPlate(P):
 		#find out how many wells this plate has
 
 		numWells = p1.getNumberOfWells()
-
-		stringValue = str("")
-
-		for well in range(0, numWells):
-		 stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
-
-		 print stringValue
-	
-	#checking if it is an instance of the Plate class is sufficient
-
-	#TODO: get the number of wells in the plate
+		#TODO: get the number of wells in the plate
+			
 
 	#TODO: Print out the data as a single row of comma separated values
+	stringValue = str("")
+
+		for well in range(0, numWells):
+		stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
+
+
+	
 	# Think of our plate (2x3) with 6 wells\
 	# letters indexing rows and numbers indexing columns then;
 	# Our data is in this order: A1, A2, A3, B1, B2, B3,
@@ -70,7 +69,14 @@ def printPlate(P):
 	#That I printed out earlier in this file.
 
 
-
 #---------------------------------------------------
 # Now do it using your function (Dont touch this line of code either)
 printPlate(plate)
+
+
+#stringValue = str("")
+
+		#for well in range(0, numWells):
+		 #stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
+
+		 #print str(stringValue)
