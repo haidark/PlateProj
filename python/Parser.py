@@ -7,17 +7,6 @@
 # This file contains the function which creates a list of Plate objects \
 # from an xml file
 ###################################################
-#HK - DO NOT MODIFY THIS CODE:
-from Plate import Plate
-import random
-#make a new plate, at time 13.37, temp 100 degrees, with 30 wells
-plate = Plate(13.37, 100.0, 6)
-#fill it with random numbers and print the desired output
-for i in range(6):
-	plate.setData(random.uniform(0,10), i)
-plate.printCSV()
-#HK - END DO NOT MODIFY THIS CODE
-#####################################################
 
 #Assignment for Shuaib Peters
 # Before we start coding, you need to learn more about the XML format for storing data
@@ -43,8 +32,19 @@ tree = ET.parse('test.xml')
 #Gets root from test file
 root = tree.getroot()
 
-root.tag
-root.attrib
+#Cool, now we have the root of the tree.
+# the root of the tree corresponds to the <microplate> tag in the file.
+#dont believe me? look at what this prints
+print root.tag
+#now we want to get the child of <microplate> that has the tag <noOfWells>
+#here is how we get a child by their tag name
+wellsElem = root.find('noOfWells')
+#that searches the children of root for the child with the tag 'noOfWells'
+#to prove I got it, ill print the tag and the text inside the tag
+print wellsElem.tag
+print wellsElem.text
 
-for child in root:
-	print child.tag,child.text
+for rawData in root.iter('rawData'):
+	print rawData.tag
+	print rawData.text
+
