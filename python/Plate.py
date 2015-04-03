@@ -50,12 +50,12 @@ class Plate:
 			print "Invalid type for value!"
 		else:
 		#Insert the value into data at the specified index
-
 			self.data[well] = value
 	def getNumberOfWells(self):
 		return self.numWells
 	def getWellValue(self, well):
 		return self.data[well]
+
 	def printCSV(self):
 		print ", ".join([str(x) for x in self.data])	
 #------------------------------------------------------------------
