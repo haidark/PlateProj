@@ -7,17 +7,6 @@
 # This file contains the function which creates a list of Plate objects \
 # from an xml file
 ###################################################
-#HK - DO NOT MODIFY THIS CODE:
-from Plate import Plate
-import random
-#make a new plate, at time 13.37, temp 100 degrees, with 30 wells
-plate = Plate(13.37, 100.0, 6)
-#fill it with random numbers and print the desired output
-for i in range(6):
-	plate.setData(random.uniform(0,10), i)
-plate.printCSV()
-#HK - END DO NOT MODIFY THIS CODE
-#####################################################
 
 #Assignment for Shuaib Peters
 # Before we start coding, you need to learn more about the XML format for storing data
@@ -54,15 +43,3 @@ wellsElem = root.find('noOfWells')
 #to prove I got it, ill print the tag and the text inside the tag
 print wellsElem.tag
 print wellsElem.text
-
-
-
-
-
-
-#put this away for now
-# root.tag
-# root.attrib
-
-#for child in root:
-	#print child.tag,child.text

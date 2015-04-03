@@ -41,8 +41,9 @@ class Plate:
 			#initialize data to an array of zeros
 			#Using a list comprehension (trust me this works)
 			self.data = [0 for x in range(numWells)]
+	
 	#sets the 'well'-th element in 'data' to 'value'
-	def setData(self, value, well):
+	def setWellValue(self, value, well):
 		#Error checking on input
 		if well < 0 or well >= self.numWells:
 			print "Invalid well index!"
@@ -51,10 +52,13 @@ class Plate:
 		else:
 		#Insert the value into data at the specified index
 			self.data[well] = value
-	def getNumberOfWells(self):
-		return self.numWells
+	
 	def getWellValue(self, well):
-		return self.data[well]
+		#Error checking on input
+		if well < 0 or well >= self.numWells:
+			print "Invalid well index!"
+		else:
+			return self.data[well]
 
 	def printCSV(self):
 		print ", ".join([str(x) for x in self.data])	
@@ -63,7 +67,7 @@ class Plate:
 #(only runs if running this file directly)
 if __name__ == "__main__":
 	p1 = Plate(15, 2.2, 6)
-	p1.setData(100, 3)
+	p1.setWellValue(100, 3)
 	print 'Time: ', p1.time
 	print 'Temp: ', p1. temp
 	print p1.data

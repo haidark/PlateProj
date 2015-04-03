@@ -14,7 +14,7 @@ import random
 plate = Plate(13.37, 100.0, 6)
 #fill it with random numbers and print the desired output
 for i in range(6):
-	plate.setData(random.uniform(0,10), i)
+	plate.setWellValue(random.uniform(0,10), i)
 plate.printCSV()
 #HK - END DO NOT MODIFY THIS CODE
 #####################################################
@@ -30,33 +30,19 @@ def printPlate(P):
 	if not (isinstance(P, Plate)):
 		print "Sorry, not a valid input"
 	else: 
-		#You dont need to create a new plate, 
-		#I passed one to you and you made sure it was a plate using the error checking code!!!
-
-
-		# get the number of wells in the plate
-		#You can use Bayah's accessor functions to get the number of wells, (totally unnecessary)
-		numWells = P.getNumberOfWells()
-
-		#or you can just get them using the '.' operator
+		# Get the number of wells in the plate
 		numWells = P.numWells
-
-
 		# Print out the data as a single row of comma separated values
-		# this works, but ...
-		stringValue = str("") 
-		#this is cleaner:
-		stringVale = ""
+		# Initialize an empty string to build our string out of.
+		stringValue = ""
 
-		#perfect! this is a great for loop
+		#for every well in this plate
 		for well in range(0, numWells):
+		 	# Build the string by adding the data from this well to it.
 		 	stringValue = stringValue + str(P.getWellValue(well)) + str(", ")
 
-		#removed indentation here so it doesnt print out all the substrings.
+		#print the final constructed string
 		print stringValue
-
-	#You are done; to verify your results, make sure they match with the order \
-	#That I printed out earlier in this file.
 
 
 #---------------------------------------------------
