@@ -43,8 +43,3 @@ wellsElem = root.find('noOfWells')
 #to prove I got it, ill print the tag and the text inside the tag
 print wellsElem.tag
 print wellsElem.text
-
-for rawData in root.iter('rawData'):
-	print rawData.tag
-	print rawData.text
-
