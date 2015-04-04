@@ -31,15 +31,15 @@ def printPlate(P):
 		print "Sorry, not a valid input"
 		#checking if it is an instance of the Plate class is sufficient
 	else: 
-<<<<<<< HEAD
+
 		p1 = Plate(13.36, 100.0, 6)
 
 		#set data for well 1 =23
 		p1.setData (23, 0)
-		#set data for well 2 =13
 		p1.setData (13, 1)
 		#set data for well 3 =43 		
 		p1.setData (43, 2)
+		#set data for well 2 =13
 		#set data for well 4 =5
 		p1.setData (5, 3)
 		#set data for well 5 =76
@@ -54,17 +54,17 @@ def printPlate(P):
 
 	#TODO: Print out the data as a single row of comma separated values
 	stringValue = str("")
-=======
+
 		# Get the number of wells in the plate
-		numWells = P.numWells
+	numWells = P.numWells
 		# Print out the data as a single row of comma separated values
 		# Initialize an empty string to build our string out of.
-		stringValue = ""
->>>>>>> origin/master
+	stringValue = ""
+
 
 		#for every well in this plate
-		for well in range(0, numWells):
-<<<<<<< HEAD
+	for well in range(0, numWells):
+
 		stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
 
 
@@ -77,22 +77,14 @@ def printPlate(P):
 
 	#You are done; to verify your results, make sure they match with the order \
 	#That I printed out earlier in this file.
-=======
+
 		 	# Build the string by adding the data from this well to it.
-		 	stringValue = stringValue + str(P.getWellValue(well)) + str(", ")
->>>>>>> origin/master
 
 		#print the final constructed string
-		print stringValue
+	print stringValue
 
 #---------------------------------------------------
 # Now do it using your function (Dont touch this line of code either)
 printPlate(plate)
 
 
-#stringValue = str("")
-
-		#for well in range(0, numWells):
-		 #stringValue = stringValue + str(p1.getWellValue(well)) + str(",")
-
-		 #print str(stringValue)
