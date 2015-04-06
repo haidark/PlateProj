@@ -37,14 +37,17 @@ def printPlate(P):
 		stringValue = ""
 
 		#for every well in this plate
-		for well in range(0, numWells):
+		for well in range(0, numWells):																										
 			# Build the string by adding the data from this well to it.
-			stringValue = stringValue + str(P.data[well]) + str(", ")
+			stringValue = stringValue + str(P.data[well]) + str(", ") 
+			stringValue = stringValue[0:-1]
+
 		#print the final constructed string
 		print stringValue
 
 #---------------------------------------------------
 # Now do it using your function (Dont touch this line of code either)
 printPlate(plate)
+
 
 
