@@ -48,3 +48,5 @@ for rawData in root.iter('rawData'):
 	print rawData.tag
 	print rawData.text
 
+print rawData.tag
+print rawData.text
