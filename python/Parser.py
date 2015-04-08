@@ -48,5 +48,7 @@ for rawData in root.iter('rawData'):
 	print rawData.tag
 	print rawData.text
 
-print rawData.tag
-print rawData.text
+wave = root.find('wave')
+print wave[3].tag
+print wave[3].attrib
+print wave[3].find('oneDataSet').find('rawData').text
