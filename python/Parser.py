@@ -56,7 +56,7 @@ print wave[3].find('oneDataSet').find('rawData').text
 
 
 
-x = input("Please enter a number from 1-4: ")
+
 def getWellXML(x):
 	for rawData in root.findall('rawData'):
 		if int(x) > 4:
@@ -77,3 +77,7 @@ def getWellXML(x):
 						if int(x) == 1:
 							print rawData[0].tag
 							print rawData[0].attrib
+
+
+x = input("Please enter a number from 1-4: ")
+getWellXML(x)
