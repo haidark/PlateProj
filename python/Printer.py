@@ -50,9 +50,16 @@ def printPlate(P):
 		stringValue = stringValue[0:-2]
 
 		print stringValue
+		WriteToCsvFile = open("test.csv", "w")
+		WriteToCsvFile.write ("You enter into the domain of Azer the Austere, tread forward with five in your pocket... \n")
+		WriteToCsvFile.write (stringValue)
+
+
+
+
+
 		#---------------------------------------------------
 # Now do it using your function (Dont touch this line of code either)
 printPlate(plate)
-
 
 
