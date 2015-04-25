@@ -32,52 +32,40 @@ tree = ET.parse('test.xml')
 #Gets root from test file
 root = tree.getroot()
 
-#Cool, now we have the root of the tree.
-# the root of the tree corresponds to the <microplate> tag in the file.
-#dont believe me? look at what this prints
-print root.tag
-#now we want to get the child of <microplate> that has the tag <noOfWells>
-#here is how we get a child by their tag name
-wellsElem = root.find('noOfWells')
-#that searches the children of root for the child with the tag 'noOfWells'
-#to prove I got it, ill print the tag and the text inside the tag
-print wellsElem.tag
-print wellsElem.text
+# #Cool, now we have the root of the tree.
+# # the root of the tree corresponds to the <microplate> tag in the file.
+# #dont believe me? look at what this prints
+# print root.tag
+# #now we want to get the child of <microplate> that has the tag <noOfWells>
+# #here is how we get a child by their tag name
+# wellsElem = root.find('noOfWells')
+# #that searches the children of root for the child with the tag 'noOfWells'
+# #to prove I got it, ill print the tag and the text inside the tag
+# print wellsElem.tag
+# print wellsElem.text
 
-for rawData in root.iter('rawData'):
-	print rawData.tag
-	print rawData.text
+# for rawData in root.iter('rawData'):
+# 	print rawData.tag
+# 	print rawData.text
 
-wave = root.find('wave')
-print wave[3].tag
-print wave[3].attrib
-print wave[3].find('oneDataSet').find('rawData').text
-
-
+# wave = root.find('wave')
+# print wave[3].tag
+# print wave[3].attrib
+# print wave[3].find('oneDataSet').find('rawData').text
 
 
 
-def getWellXML(x):
+
+
+def getWellXML(x, root):
 
 		if int(x) > 4:
 			print "Your input is incorrect"
 		else:
-			if int(x) == 4:
-				print wave[3].tag
-				print wave[3].find('oneDataSet').find('rawData').text
-			else:
-				if int(x) == 3:
-					print wave[2].tag
-					print wave[2].find('oneDataSet').find('rawData').text
-				else:
-					if int(x) == 2:
-						print wave[1].tag
-						print wave[1].find('oneDataSet').find('rawData').text
-					else:
-						if int(x) == 1:
-							print wave[0].tag
-							print wave[0].find('oneDataSet').find('rawData').text
+			wave = root.find('wave')
+			print wave[x-1][0][0].text
+			
 
 
 x = input("Please enter a number from 1-4: ")
-getWellXML(x)
+getWellXML(x, root)
