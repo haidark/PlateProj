@@ -10,12 +10,22 @@
 #HK - DO NOT MODIFY THIS CODE:
 from Plate import Plate
 import random
-#make a new plate, at time 13.37, temp 100 degrees, with 30 wells
-plate = Plate(13.37, 100.0, 6)
-#fill it with random numbers and print the desired output
-for i in range(6):
-	plate.setWellValue(random.uniform(0,10), i)
-plate.printCSV()
+def makePlate():
+	#make a new plate, at time 13.37, temp 100 degrees, with 30 wells
+	plate = Plate(13.37, 100.0, 6)
+	#fill it with random numbers and print the desired output
+	for i in range(6):
+		plate.setWellValue(random.uniform(0,10), i)
+	return plate
+
+listofPlates = list()
+for i in range(5):
+	x = makePlate()
+	listofPlates.append(x)
+
+
+# x.printCSV()
+# plate.printCSV()
 #HK - END DO NOT MODIFY THIS CODE
 #####################################################
 
@@ -50,12 +60,12 @@ def printPlate(P):
 		stringValue = stringValue[0:-2]
 
 		print stringValue
-		WriteToCsvFile = open("test.csv", "w")
+		WriteToCsvFile = open("test1.csv", "w")
 		WriteToCsvFile.write ("You enter into the domain of Azer the Austere, tread forward with five in your pocket... \n")
 		WriteToCsvFile.write (stringValue)
 		WriteToCsvFile.close()
 
-def printPlates (Plates)													`1q
+def printPlates(Plates):	
 	for Plate in Plates:
 		printPlate(Plate)
 
@@ -63,6 +73,6 @@ def printPlates (Plates)													`1q
 
 		#---------------------------------------------------
 # Now do it using your function (Dont touch this line of code either)
-printPlate(plate)
-
+#printPlate(plate)
+printPlates(listofPlates)
 
