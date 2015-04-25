@@ -53,8 +53,11 @@ def printPlate(P):
 		WriteToCsvFile = open("test.csv", "w")
 		WriteToCsvFile.write ("You enter into the domain of Azer the Austere, tread forward with five in your pocket... \n")
 		WriteToCsvFile.write (stringValue)
+		WriteToCsvFile.close()
 
-
+def printPlates (Plates)													`1q
+	for Plate in Plates:
+		printPlate(Plate)
 
 
 
