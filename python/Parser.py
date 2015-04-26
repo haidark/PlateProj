@@ -9,69 +9,23 @@
 ###################################################
 
 #Assignment for Shuaib Peters
-# Before we start coding, you need to learn more about the XML format for storing data
-#I have made a simplified xml document that more or less resembles the form of the \
-#data we will be working with. 
-#TODO: Study this file carefully and try to draw a tree that resembles the structure \
-#of the file similar to the trees I drew during our last meeting. (on paper)
-
-#TODO: once you have an understanding of the structure of the XML tree, use the pyton XML parser \
-#(documentation here: https://docs.python.org/2/library/xml.etree.elementtree.html) to read \
-# the test.xml file into python.
-
-#TODO: After you have done that, use the resulting tree to print the number of wells in the test.xml file.
-
-#Imports the test file as an Element tree
-#HKK: NO! this was correct before... This imports the parsing module that we will be using!
 
 import xml.etree.ElementTree as ET
 
-#HKK: This line is where test.xml is read as an element tree... but the filename is wrong here
 tree = ET.parse('realData.xml')
-
+#we need to prepend everything witht he namespace in order to search for it...
+namespace = "{http://moleculardevices.com/microplateML}"
 #Gets root from test file
 root = tree.getroot()
-print root.tag
-# #Cool, now we have the root of the tree.
-# # the root of the tree corresponds to the <microplate> tag in the file.
-# #dont believe me? look at what this prints
-# print root.tag
-# #now we want to get the child of <microplate> that has the tag <noOfWells>
-# #here is how we get a child by their tag name
-# wellsElem = root.find('noOfWells')
-# #that searches the children of root for the child with the tag 'noOfWells'
-# #to prove I got it, ill print the tag and the text inside the tag
-# print wellsElem.tag
-# print wellsElem.text
-
-# for rawData in root.iter('rawData'):
-# 	print rawData.tag
-# 	print rawData.text
-
-# wave = root.find('wave')
-# print wave[3].tag
-# print wave[3].attrib
-# print wave[3].find('oneDataSet').find('rawData').text
-
-
-
-
 
 def getWellXML(x, root):
+	# This function gets the (x-1)-th well from the XML file.
+	if int(x) > 96:
+		print "Your input is incorrect"
+	else:
+		wave = root[1][0].find(namespace+'microplateData').find(namespace+'wave')
+		print wave[x-1][0].find(namespace+'rawData').text
 
-		if int(x) > 96:
-			print "Your input is incorrect"
-		else:
-			wave = root.find('experimentSection').find('plateSection').('microplateData').find('wave').find('well').find('oneDataSet')
-			print wave[x-1].tag
-			print wave[x-1].text
-			
-
-
-x = input("Please enter a number from: ")
+x = input("Please enter a number: ")
 getWellXML(x, root)
-
-#for child in root[1][0][5][3]:
-#	print child.tag
-	
 	

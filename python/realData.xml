@@ -7,7 +7,9 @@
     <plateSection>
       <plateType>PlateType</plateType>
       <plateSectionName>Plate01</plateSectionName>
-      <plateReadTime>  5:41 PM  2/25/2015   Points Read:  217</plateReadTime>
+      <plateReadTime>  5:41 PM  2/25/2015
+      Points Read:  217
+      </plateReadTime>
       <instrumentInfo>SPECTRAmax M5e ROM v2.1.35 20May09</instrumentInfo>
       <instrumentSettings>
         <readMode>Fluorescence</readMode>
