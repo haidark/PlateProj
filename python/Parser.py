@@ -27,11 +27,11 @@
 import xml.etree.ElementTree as ET
 
 #HKK: This line is where test.xml is read as an element tree... but the filename is wrong here
-tree = ET.parse('test.xml')
+tree = ET.parse('realData.xml')
 
 #Gets root from test file
 root = tree.getroot()
-
+print root.tag
 # #Cool, now we have the root of the tree.
 # # the root of the tree corresponds to the <microplate> tag in the file.
 # #dont believe me? look at what this prints
@@ -59,13 +59,19 @@ root = tree.getroot()
 
 def getWellXML(x, root):
 
-		if int(x) > 4:
+		if int(x) > 96:
 			print "Your input is incorrect"
 		else:
-			wave = root.find('wave')
-			print wave[x-1][0][0].text
+			wave = root.find('experimentSection').find('plateSection').('microplateData').find('wave').find('well').find('oneDataSet')
+			print wave[x-1].tag
+			print wave[x-1].text
 			
 
 
-x = input("Please enter a number from 1-4: ")
+x = input("Please enter a number from: ")
 getWellXML(x, root)
+
+#for child in root[1][0][5][3]:
+#	print child.tag
+	
+	
