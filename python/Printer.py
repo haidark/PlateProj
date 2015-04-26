@@ -59,16 +59,17 @@ def printPlate(P):
 		
 		stringValue = stringValue[0:-2]
 
-		print stringValue
-		WriteToCsvFile = open("test1.csv", "w")
-		WriteToCsvFile.write ("You enter into the domain of Azer the Austere, tread forward with five in your pocket... \n")
-		WriteToCsvFile.write (stringValue)
-		WriteToCsvFile.close()
+		return stringValue
+		
 
 def printPlates(Plates):	
+	WriteToCsvFile = open("test1.csv", "w")
 	for Plate in Plates:
-		printPlate(Plate)
+		s = printPlate(Plate)
 
+		WriteToCsvFile.write (s+ "\n")
+	
+	WriteToCsvFile.close()
 
 
 		#---------------------------------------------------
