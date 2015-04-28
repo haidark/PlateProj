@@ -12,11 +12,11 @@
 
 import xml.etree.ElementTree as ET
 
-tree = ET.parse('realData.xml')
+#tree = ET.parse('realData.xml')
 #we need to prepend everything witht he namespace in order to search for it...
-namespace = "{http://moleculardevices.com/microplateML}"
+#namespace = "{http://moleculardevices.com/microplateML}"
 #Gets root from real data file
-root = tree.getroot()
+#root = tree.getroot()
 
 #def getWellXML(x, root):
 	# This function gets the (x-1)-th well from the XML file.
@@ -28,11 +28,10 @@ root = tree.getroot()
 
 
 
-def getWellXML(x, root):
-	x = input("Please enter the file name: ")
-	root = ET.fromstring()
-	print root
+def getWellXML(a):
+	a = raw_input("Please enter the file name: ")
+tree = ET.parse(a.xml)
 
 
 #x = input("Please enter a number: ")
-getWellXML(x, root)
+getWellXML(a)
