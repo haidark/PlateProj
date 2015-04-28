@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 
 #tree = ET.parse('realData.xml')
 #we need to prepend everything witht he namespace in order to search for it...
-#namespace = "{http://moleculardevices.com/microplateML}"
+namespace = "{http://moleculardevices.com/microplateML}"
 #Gets root from real data file
 #root = tree.getroot()
 
@@ -27,11 +27,13 @@ import xml.etree.ElementTree as ET
 #		print wave[x-1][0].find(namespace+'rawData').text
 
 
-
+a = raw_input("Please enter the file name: ")
 def getWellXML(a):
-	a = raw_input("Please enter the file name: ")
-tree = ET.parse(a.xml)
-
+	tree = ET.parse(a)
+	root = tree.getroot()
+	noOfWells = root.find(namespace+ 'noOfWells')
+	print ("The number of wells in your file is: ", noOfWells.text)
+	
 
 #x = input("Please enter a number: ")
 getWellXML(a)
