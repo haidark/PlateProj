@@ -32,7 +32,10 @@ def getWellXML(a):
 	tree = ET.parse(a)
 	root = tree.getroot()
 	noOfWells = root.find(namespace+ 'noOfWells')
-	print ("The number of wells in your file is: ", noOfWells.text)
+	print "The number of wells in your file is: ", noOfWells.text
+	rawData = root.find(namespace+ 'oneDataSet')
+	print rawData.tag
+	print rawData.text
 	
 
 #x = input("Please enter a number: ")
