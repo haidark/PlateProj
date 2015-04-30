@@ -31,9 +31,9 @@ a = raw_input("Please enter the file name: ")
 def getWellXML(a):
 	tree = ET.parse(a)
 	root = tree.getroot()
-	noOfWells = root.find(namespace+ 'noOfWells')
+	noOfWells = root[1][0][5].find(namespace+ 'noOfWells')
 	print "The number of wells in your file is: ", noOfWells.text
-	rawData = root.find(namespace+ 'oneDataSet')
+	rawData = root[1][0][5][3].find(namespace+ 'oneDataSet')
 	print rawData.tag
 	print rawData.text
 	
