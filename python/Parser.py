@@ -33,9 +33,13 @@ def getWellXML(a):
 	root = tree.getroot()
 	noOfWells = root[1][0][5].find(namespace+ 'noOfWells')
 	print "The number of wells in your file is: ", noOfWells.text
-	rawData = root[1][0][5][3][0].find(namespace+ 'oneDataSet')
-	print rawData.tag
-	print rawData.text
+	for child in root[1][0][5][3].iter(namespace+ 'rawData'):
+		print child.tag
+		print child.text
+
+	#rawData = root[1][0][5][3][0].find(namespace+ 'oneDataSet')
+	#print rawData.tag
+	#print rawData.text
 	
 
 #x = input("Please enter a number: ")
