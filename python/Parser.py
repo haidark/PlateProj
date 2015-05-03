@@ -36,6 +36,7 @@ def getWellXML(a):
 	rawData = root[1][0][5][3][0].find(namespace+ 'oneDataSet')
 	print rawData.tag
 	print rawData.text
+	
 
 #x = input("Please enter a number: ")
 getWellXML(a)
