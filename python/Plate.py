@@ -12,10 +12,11 @@
 # a specific time and temperature
 #------------------------------------------------------------------
 # The Plate class has the following attributes:
-#	-numWells - The number of wells on the plate (int >0)
+#	-numWells - The number of wells on the plate (int > 0)
 #	-temp - The temperature the plate was at when recording took place (int/float)
 #	-time - The time when the recording took place TODO: secs/mins? (int/float)
-#	-data - an array of numWells elements containg well data (list(float))#		
+#	-data - an array of numWells elements containg well data (list(float))
+#	-wellLabels - a list of strings, same size as data (list(string))	
 #------------------------------------------------------------------
 # The Plate class has the following methods:
 #	-__init__ - constructor for Plate objects
@@ -41,6 +42,8 @@ class Plate:
 			#initialize data to an array of zeros
 			#Using a list comprehension (trust me this works)
 			self.data = [0 for x in range(numWells)]
+			#initialize wellLabels to strings of 0-numWells
+			self.wellLabels = [str(x) for x in range(numWells)]
 	
 	#sets the 'well'-th element in 'data' to 'value'
 	def setWellValue(self, value, well):
