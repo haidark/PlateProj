@@ -31,10 +31,8 @@ def getWellXML(a):
 getWellXML(a)
 
 
-class Plate:
-	def __init__(self, temp, time, numWells):
-		self.numWells = numWells
-		self.temp = temp
-		self.time = time
-		self.data = [0 for x in range(numWells)]
-		self.wellLabels = [str(x) for x in range(numWells)]	
+from Plate import Plate
+
+plate = Plate(0, 0, 30)
+print plate.time
+print plate.temp
