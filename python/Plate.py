@@ -16,7 +16,7 @@
 #	-temp - The temperature the plate was at when recording took place (int/float)
 #	-time - The time when the recording took place TODO: secs/mins? (int/float)
 #	-data - an array of numWells elements containg well data (list(float))
-#	-wellLabels - a list of strings, same size as data (list(string))	
+#	-wellLabel - a list of strings, same size as data (list(string))	
 #------------------------------------------------------------------
 # The Plate class has the following methods:
 #	-__init__ - constructor for Plate objects
@@ -43,18 +43,21 @@ class Plate:
 			#Using a list comprehension (trust me this works)
 			self.data = [0 for x in range(numWells)]
 			#initialize wellLabels to strings of 0-numWells
-			self.wellLabels = [str(x) for x in range(numWells)]
+			self.wellLabel = [str(x) for x in range(numWells)]
 	
 	#sets the 'well'-th element in 'data' to 'value'
-	def setWellValue(self, value, well):
+	def setWellValue(self, value, well, label):
 		#Error checking on input
 		if well < 0 or well >= self.numWells:
 			print "Invalid well index!"
 		elif not isinstance(value, (float, int)):
 			print "Invalid type for value!"
+		elif not isinstance(label, str):
+			print "Invalid type for label!"
 		else:
 		#Insert the value into data at the specified index
 			self.data[well] = value
+			self.wellLabel[well] = label
 	
 	def getWellValue(self, well):
 		#Error checking on input
