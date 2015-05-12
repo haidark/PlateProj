@@ -46,7 +46,7 @@ class Plate:
 			self.wellLabel = [str(x) for x in range(numWells)]
 	
 	#sets the 'well'-th element in 'data' to 'value'
-	def setWellValue(self, value, well, label):
+	def setWellValue(self, value, well, label=""):
 		#Error checking on input
 		if well < 0 or well >= self.numWells:
 			print "Invalid well index!"
@@ -57,6 +57,8 @@ class Plate:
 		else:
 		#Insert the value into data at the specified index
 			self.data[well] = value
+			if label == "":
+				label = str(well)
 			self.wellLabel[well] = label
 	
 	def getWellValue(self, well):
