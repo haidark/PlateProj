@@ -9,7 +9,7 @@
 ###################################################
 
 #Assignment for Shuaib Peters
-
+from Plate import Plate
 import xml.etree.ElementTree as ET
 
 #we need to prepend everything witht he namespace in order to search for it...
