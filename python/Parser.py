@@ -16,23 +16,22 @@ import xml.etree.ElementTree as ET
 namespace = "{http://moleculardevices.com/microplateML}"
 
 
-a = raw_input("Please enter the file name: ")
+#a = raw_input("Please enter the file name: ")
 
-def getWellXML(a):
-	tree = ET.parse(a)
-	root = tree.getroot()
-	noOfWells = root[1][0][5].find(namespace+ 'noOfWells')
-	print "The number of wells in your file is: ", noOfWells.text
-	for child in root[1][0][5][3].iter(namespace+ 'rawData'):
-		print child.tag
-		print child.text
-
-
-getWellXML(a)
+#def getWellXML(a):
+#	tree = ET.parse(a)
+#	root = tree.getroot()
+#	noOfWells = root[1][0][5].find(namespace+ 'noOfWells')
+#	print "The number of wells in your file is: ", noOfWells.text
+#	for child in root[1][0][5][3].iter(namespace+ 'rawData'):
+#		print child.tag
+#		print child.text
 
 
-from Plate import Plate
+#getWellXML(a)
 
-plate = Plate(0, 0, 30)
-print plate.time
-print plate.temp
+
+
+x = Plate(21.8, 300, 1)
+x.getWellValue(0)
+
