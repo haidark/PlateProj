@@ -12,8 +12,12 @@ from Printer import printPlates
 from Parser import readXMLFile
 import sys
 
-print "Reading the XML file."
+if len(sys.argv) != 3:
+	print 'USAGE: '+sys.argv[0]+' <xml file> <csv file>'
+	quit()
+
+print "Reading the XML file..."
 PlateList = readXMLFile(sys.argv[1])
 print "Printing the CSV file..."
-printPlates(PlateList)
+printPlates(PlateList, sys.argv[2])
 print "Done!"

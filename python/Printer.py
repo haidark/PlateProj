@@ -59,11 +59,11 @@ def printPlate(P):
 		return stringValue
 		
 
-def printPlates(Plates):	
+def printPlates(Plates, csvFile):	
 	if not isinstance(Plates, list) or not all(isinstance(p, Plate) for p in Plates):
 		print "ERROR: Input is not a list of Plate objects!"
 	else:
-		with open("test1.csv", "w") as WriteToCsvFile:
+		with open(csvFile, "w") as WriteToCsvFile:
 			# Write column headers
 			WriteToCsvFile.write ("Temperature, Time, ")
 			# Get first plate in series of Plates
@@ -80,5 +80,5 @@ def printPlates(Plates):
 #---------------------------------------------------
 # Now do it using your function (Dont touch this line of code either)
 #printPlate(plate)
-printPlates(listofPlates)
+printPlates(listofPlates, 'test.csv')
 
