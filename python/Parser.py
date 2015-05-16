@@ -33,5 +33,5 @@ namespace = "{http://moleculardevices.com/microplateML}"
 
 
 x = Plate(21.8, 300, 1)
-x.getWellValue(0)
+print x.getWellValue(0)
 
