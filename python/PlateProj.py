@@ -10,9 +10,10 @@
 
 from Printer import printPlates
 from Parser import readXMLFile
+import sys
 
 print "Reading the XML file."
-PlateList = readXMLFile(argv[1])
+PlateList = readXMLFile(sys.argv[1])
 print "Printing the CSV file..."
 printPlates(PlateList)
 print "Done!"
