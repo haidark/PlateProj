@@ -67,10 +67,10 @@ def printPlate(P):
 
 def printPlates(Plates):	
 	WriteToCsvFile = open("test1.csv", "w")
-	WriteToCsvFile.write ("Temperature, Time")
+	wellLabel = str("")
+	WriteToCsvFile.write ("wellLabel")
 	#TODO get numRows and numCols from Plate Object
-	numRows = 2
-	numCols = 3
+	
 
 	for letter in range(numRows):
 		for number in range(numCols):
