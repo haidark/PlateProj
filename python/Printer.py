@@ -53,38 +53,31 @@ def printPlate(P):
 		# Build the string by adding the data from this well to it.
 			stringValue = stringValue + str(P.data[well]) + str(", ") 
 
-			
-		
-
-
-		#print the final constructed string
-		
-		
+		#the final constructed string	
 		stringValue = stringValue[0:-2]
 
 		return stringValue
 		
 
 def printPlates(Plates):	
-	WriteToCsvFile = open("test1.csv", "w")
-	wellLabel = str("")
-	WriteToCsvFile.write ("wellLabel")
-	#TODO get numRows and numCols from Plate Object
+	if not isinstance(Plates, list) or not all(isinstance(p, Plate) for p in Plates):
+		print "ERROR: Input is not a list of Plate objects!"
+	else:
+		with open("test1.csv", "w") as WriteToCsvFile:
+			# Write column headers
+			WriteToCsvFile.write ("Temperature, Time, ")
+			# Get first plate in series of Plates
+			# Use its labels as column headers
+			plate0 = Plates[0];
+			WriteToCsvFile.write(", ".join(plate0.wellLabel)+"\n")
+			
+			# Write the data
+			for plate in Plates:
+				s = printPlate(plate)
+				WriteToCsvFile.write (s+ "\n")
 	
 
-	for letter in range(numRows):
-		for number in range(numCols):
-			WriteToCsvFile.write(", " + string.uppercase[letter] + str(number+1))
-	WriteToCsvFile.write("\n")
-
-	for Plate in Plates:
-		s = printPlate(Plate)
-		WriteToCsvFile.write (s+ "\n")
-	
-	WriteToCsvFile.close()
-
-
-		#---------------------------------------------------
+#---------------------------------------------------
 # Now do it using your function (Dont touch this line of code either)
 #printPlate(plate)
 printPlates(listofPlates)
