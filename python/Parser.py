@@ -15,32 +15,6 @@ import xml.etree.ElementTree as ET
 #we need to prepend everything witht he namespace in order to search for it...
 namespace = "{http://moleculardevices.com/microplateML}"
 
-
-#a = raw_input("Please enter the file name: ")
-
-def getWellXML(a):
-	tree = ET.parse(a)
-	root = tree.getroot()
-	noOfWells = root[1][0][5].find(namespace+ 'noOfWells')
-	print "The number of wells in your file is: ", noOfWells.text
-	for child in root[1][0][5][3].iter(namespace+ 'rawData'):
-		print child.tag
-		print child.text
-	
-
-#getWellXML(a)
-
-	temp = root[1][0][5][3].iter(namespace+ 'temperatureData')
-	rawData = root[1][0][5][3].iter(namespace+ 'rawData')
-	time = root[1][0][5][3].iter(namespace+ 'timeData')
-
-	x = Plate(temp, time, 96)
-	print x.getWellValue(numOfWells)
-
-#getWellXML(a)
-
-#print type(-0.098)
-
 def readXMLFile(xmlFileName):
 	tree = ET.parse(xmlFileName)
 	root = tree.getroot()
@@ -94,8 +68,8 @@ def readXMLFile(xmlFileName):
 		for w in range(numWells):
 			p.setWellValue(rawData[w][r], w, labels[w])
 		Plates.append(p)
-		
+
 	return Plates
 
-
+# test code
 readXMLFile('realData.xml')
