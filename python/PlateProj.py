@@ -15,7 +15,7 @@ import sys, os.path
 if len(sys.argv) < 2:
 	print '(-) USAGE: '+sys.argv[0]+' <xml file>'
 	print '(-) This program takes a properly formatted xml file and transforms the data into a csv file.'
-	quit()
+	exit()
 
 for xmlFile in sys.argv[1:]:
 	if not os.path.isfile(xmlFile):
