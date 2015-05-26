@@ -8,14 +8,14 @@
 # from an xml file
 ###################################################
 
-#Assignment for Shuaib Peters
 from Plate import Plate
 import xml.etree.ElementTree as ET
 
-#we need to prepend everything witht he namespace in order to search for it...
-namespace = "{http://moleculardevices.com/microplateML}"
-
 def readXMLFile(xmlFileName):
+	
+	#we need to prepend everything with the namespace in order to search for it
+	namespace = "{http://moleculardevices.com/microplateML}"
+
 	tree = ET.parse(xmlFileName)
 	root = tree.getroot()
 	child = root.find(namespace+'experimentSection')
@@ -70,6 +70,3 @@ def readXMLFile(xmlFileName):
 		Plates.append(p)
 
 	return Plates
-
-# test code
-readXMLFile('realData.xml')

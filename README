@@ -1,10 +1,22 @@
-README for Plate Project
+README for PlateProject
+
+Instructions:
+- A windows executable will be available soon. (hopefully a GUI too)
+
+- In the meantime, here is how to run it using a python installation
+1) open a terminal in the PlateProj/python directory (or navigate there)
+2) type 'python PlateProj.py <file1> <file2> ... <fileN>'
+3) where <fileX> is replaced by the names of the xmlfiles you want to convert. You can do single files or multiple files at the same time.
+4) the output will be saved as .csv files in the same directory as the .xml files.
+
+
+DEVELOPER NOTES:
 
 Goal: Convert data from format outputted by a laboratory machine to an easier format to manipulate
 
-Collaborators: Haidar Khan; Babar Khan, Azer Khan, Shuaib Peters, Badar Khan, Taimur Khan
+Collaborators: Haidar Khan; Babar Khan, Azer Khan, Shuaib Peters, Badar Khan
 
-Project is divided into three main components:
+The project is divided into three main components:
 
 --Parser module
 -Parses input data and create data objects
