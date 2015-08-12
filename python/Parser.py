@@ -12,7 +12,7 @@ from Plate import Plate
 import xml.etree.ElementTree as ET
 
 def readXMLFile(xmlFileName):
-	
+
 	#we need to prepend everything with the namespace in order to search for it
 	namespace = "{http://moleculardevices.com/microplateML}"
 
@@ -21,22 +21,22 @@ def readXMLFile(xmlFileName):
 	child = root.find(namespace+'experimentSection')
 	child = child.find(namespace+'plateSection')
 	child = child.find(namespace+'microplateData')
-	
-	# retrieve number of wells 
+
+	# retrieve number of wells
 	noWells = child.find(namespace+'noOfWells')
 	numWells = int(noWells.text)
 
 	# retrieve number of reads
 	noReads = child.find(namespace+'noOfReads')
 	numReads = int(noReads.text)
-	
+
 	# retrieve temperature data
 	temperatureData = child.find(namespace+'temperatureData')
 	tempData = [float(x) for x in temperatureData.text.split()]
-	
+
 	# Get into wave element
 	wave = child.find(namespace+'wave')
-	
+
 	# Store all data in two matrices
 	rawData = list(list())
 	timeData = list()
@@ -59,7 +59,7 @@ def readXMLFile(xmlFileName):
 		timeRow = [float(x) for x in timeRow.split()]
 
 		rawData.append(rawRow)
-	
+
 	timeData = timeRow
 	# create list of plate objects
 	Plates = list()

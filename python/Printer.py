@@ -9,9 +9,9 @@
 ###################################################
 from Plate import Plate
 
-def printPlates(Plates, csvFile):	
+def printPlates(Plates, csvFile):
 	if not isinstance(Plates, list) or not all(isinstance(p, Plate) for p in Plates):
-		print "ERROR: Input is not a list of Plate objects!"
+		print ("ERROR: Input is not a list of Plate objects!")
 	else:
 		with open(csvFile, "w") as WriteToCsvFile:
 			# Write column headers
@@ -20,10 +20,8 @@ def printPlates(Plates, csvFile):
 			# Use its labels as column headers
 			plate0 = Plates[0];
 			WriteToCsvFile.write(", ".join(plate0.wellLabel)+"\n")
-			
+
 			# Write the data
 			for plate in Plates:
-				WriteToCsvFile.write (plate.printCSV()+ "\n")	
+				WriteToCsvFile.write (plate.printCSV()+ "\n")
 #---------------------------------------------------
-
-

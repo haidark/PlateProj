@@ -16,7 +16,7 @@
 #	-temp - The temperature the plate was at when recording took place (int/float)
 #	-time - The time when the recording took place TODO: secs/mins? (int/float)
 #	-data - an array of numWells elements containg well data (list(float))
-#	-wellLabel - a list of strings, same size as data (list(string))	
+#	-wellLabel - a list of strings, same size as data (list(string))
 #------------------------------------------------------------------
 # The Plate class has the following methods:
 #	-__init__ - constructor for Plate objects
@@ -32,9 +32,9 @@ class Plate:
 	def __init__(self, temp, time, numWells):
 		#Error checking on inputs
 		if not (isinstance(numWells, int) and numWells > 0):
-			print "Invalid number of wells!"
+			print("Invalid number of wells!")
 		elif not (isinstance(temp, (float, int)) and isinstance(time, (float, int))):
-			print "Invalid type for temp or time!"
+			print ("Invalid type for temp or time!")
 		else:
 			self.numWells = numWells
 			self.temp = temp
@@ -44,39 +44,38 @@ class Plate:
 			self.data = [0 for x in range(numWells)]
 			#initialize wellLabels to strings of 0-numWells
 			self.wellLabel = [str(x) for x in range(numWells)]
-	
+
 	#sets the 'well'-th element in 'data' to 'value'
 	def setWellValue(self, value, well, label=""):
 		#Error checking on input
 		if well < 0 or well >= self.numWells:
-			print "Invalid well index!"
+			print ("Invalid well index!")
 		elif not isinstance(value, (float, int)):
-			print "Invalid type for value!"
+			print ("Invalid type for value!")
 		elif not isinstance(label, str):
-			print "Invalid type for label!"
+			print ("Invalid type for label!")
 		else:
 		#Insert the value into data at the specified index
 			self.data[well] = value
 			if label == "":
 				label = str(well)
 			self.wellLabel[well] = label
-	
+
 	def getWellValue(self, well):
 		#Error checking on input
 		if well < 0 or well >= self.numWells:
-			print "Invalid well index!"
+			print ("Invalid well index!")
 		else:
 			return self.data[well]
 
 	def printCSV(self):
-		return ", ".join([str(x) for x in self.data])	
+		return ", ".join([str(x) for x in self.data])
 #------------------------------------------------------------------
 #Testing code for Plate Class
 #(only runs if running this file directly)
 if __name__ == "__main__":
 	p1 = Plate(15, 2.2, 6)
 	p1.setWellValue(100, 3)
-	print 'Time: ', p1.time
-	print 'Temp: ', p1. temp
-	print p1.data
-
+	print ('Time: '+str(p1.time))
+	print ('Temp: '+str(p1. temp))
+	print (p1.data)
