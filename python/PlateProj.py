@@ -16,7 +16,7 @@ files = list()
 if len(sys.argv) < 2:
 	print( '(-) USAGE: '+sys.argv[0]+' <xml file>')
 	print ('(-) This program takes a properly formatted xml file and transforms the data into a csv file.')
-	files.append(input('Enter a file name: '))
+	files.append(input('Enter the filename (with path) of your xml file: '))
 else:
 	files = sys.argv[1:]
 
