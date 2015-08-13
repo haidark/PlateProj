@@ -19,17 +19,15 @@ namespace = "{http://moleculardevices.com/microplateML}"
 def readXMLFile(xmlFileName):
 	tree = ET.parse(xmlFileName)
 	root = tree.getroot()
-	esChild = root.find(namespace+'experimentSection')
-
 	PlatesDict = dict()
+	for esChild in root.findall(namespace+'experimentSection'):
+		for psChild in esChild.findall(namespace+'plateSection'):
+			plateSectionNameString = psChild.find(namespace+'plateSectionName').text
+			#make sure string is a valid filename
+			plateSectionFileName = ''.join(i for i in plateSectionNameString if i not in '\/:*?<>|')
 
-	for psChild in esChild.findall(namespace+'plateSection'):
-		plateSectionNameString = psChild.find(namespace+'plateSectionName').text
-		#make sure string is a valid filename
-		plateSectionFileName = ''.join(i for i in plateSectionNameString if i not in '\/:*?<>|')
-
-		mpChild = psChild.find(namespace+'microplateData')
-		PlatesDict[plateSectionFileName] = parseMicroPlateData(mpChild)
+			mpChild = psChild.find(namespace+'microplateData')
+			PlatesDict[plateSectionFileName] = parseMicroPlateData(mpChild)
 
 	return PlatesDict
 
@@ -54,40 +52,44 @@ def parseMicroPlateData(mpChild):
 		wave = mpChild.find(namespace+'wave')
 
 		# Store all data in two matrices
-		rawData = list(list())
+		rawData = dict()
 		timeData = list()
-		labels = list()
-		for w in range(numWells):
-			# get the w-th well
-			well = wave[w]
-			# get the well labels
-			labels.append(well.get('wellName'))
+		labels = dict()
+		wells = wave.findall(namespace+'well')
+		for well in wells:
+			# get the well label
+			label = well.get('wellName')
+			# get the well index
+			wellIndex = int(well.get('wellID'))-1
 
 			#extract data from well element
-			well = well.find(namespace+'oneDataSet')
-			rawRow = well.find(namespace+'rawData').text
+			oneDataSet = well.find(namespace+'oneDataSet')
+			rawRow = oneDataSet.find(namespace+'rawData').text
+			
 			# handle the #SAT special case
 			splitRawRow = rawRow.split()
-			# for i, x in enumerate(splitRawRow):
-			# 	if x == '#SAT':
-			# 		splitRawRow[i] = 'inf'
-
 			rawRow = [float(x) if x != '#Sat' else float('inf') for x in splitRawRow ]
+			
 			for r in range(len(rawRow), numReads):
 				rawRow.append(0.0)
 
 			# extract time from well element
-			timeRow = well.find(namespace+'timeData').text
-			timeRow = [float(x) for x in timeRow.split()]
-
-			rawData.append(rawRow)
+			timeDataTag = oneDataSet.find(namespace+'timeData')
+			if timeDataTag is not None:
+				timeRow = [float(x) for x in timeDataTag.text.split()]
+			else:
+				timeRow = [-1 for i in range(numReads)]
+			
+			labels[wellIndex] = label
+			rawData[wellIndex] = rawRow
 
 		timeData = timeRow
+
 		# create list of plate objects
 		Plates = list()
 		for r in range(numReads):
 			p = Plate(tempData[r], timeData[r], numWells)
-			for w in range(numWells):
-				p.setWellValue(rawData[w][r], w, labels[w])
+			for wellIndex, rawRow in rawData.items():
+				p.setWellValue(rawRow[r], wellIndex, labels[wellIndex])
 			Plates.append(p)
 		return Plates

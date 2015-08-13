@@ -69,7 +69,7 @@ class Plate:
 			return self.data[well]
 
 	def printCSV(self):
-		return ", ".join([str(x) for x in self.data])
+		return str(self.temp)+','+str(self.time)+','+", ".join([str(x) for x in self.data])
 #------------------------------------------------------------------
 #Testing code for Plate Class
 #(only runs if running this file directly)
