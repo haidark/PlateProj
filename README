@@ -1,6 +1,6 @@
 README for PlateProject - Updated 8/12/15 by Haidar Khan
 
-Instructions:
+Instructions for WINDOWS:
 - Here is how to run the program:
 1) Install Python 3.4.3 from here: https://www.python.org/downloads/
     1a) During installation, check the box labeled "Add python to PATH"
@@ -9,6 +9,12 @@ Instructions:
     3a) If an "Open With" dialog pops up, select "Python Launcher for Windows (Console)"
     3b) alternatively, open a command prompt in the 'PlateProj\python\' directory
         and enter 'python PlateProj.py <xml filename>'
+
+Instructions for MAC:
+- Here is how to run the program:
+1) Navigate to the 'PlateProj\python\' directory(in this repository)
+2) Open a terminal in the 'PlateProj\python\' directory
+3) Enter 'python PlateProj.py <xml filename>'
 
 - A windows executable will be available soon.
 +-- This is dropped, its easier for the client to install python
