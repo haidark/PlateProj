@@ -9,12 +9,12 @@
 ###################################################
 from Plate import Plate
 
-def printPlates(PlatesDict):
+def printPlates(PlatesDict, outputDir='.'):
 	if not isinstance(PlatesDict, dict):
 		print("ERROR: Input is not a list of Plate objects!")
 	else:
 		for key, value in PlatesDict.items():
-			csvFile = key+'.csv'
+			csvFile = outputDir+'/'+key+'.csv'
 			Plates = value
 			with open(csvFile, "w") as WriteToCsvFile:
 				# Write column headers
