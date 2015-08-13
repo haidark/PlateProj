@@ -1,14 +1,20 @@
-README for PlateProject
+README for PlateProject - Updated 8/12/15 by Haidar Khan
 
 Instructions:
-- A windows executable will be available soon. (hopefully a GUI too)
+- Here is how to run the program:
+1) Install Python 3.4.3 from here: https://www.python.org/downloads/
+    1a) During installation, check the box labeled "Add python to PATH"
+2) Navigate to the 'PlateProj\python\' directory(in this repository)
+3) Double click the 'PlateProj.py' file
+    3a) If an "Open With" dialog pops up, select "Python Launcher for Windows (Console)"
+    3b) alternatively, open a command prompt in the 'PlateProj\python\' directory
+        and enter 'python PlateProj.py <xml filename>'
 
-- In the meantime, here is how to run it using a python installation
-1) open a terminal in the PlateProj/python directory (or navigate there)
-2) type 'python PlateProj.py <file1> <file2> ... <fileN>'
-3) where <fileX> is replaced by the names of the xmlfiles you want to convert. You can do single files or multiple files at the same time.
-4) the output will be saved as .csv files in the same directory as the .xml files.
+- A windows executable will be available soon.
++-- This is dropped, its easier for the client to install python
+    and just double click on the script.
 
+- Work on a GUI is in progress...
 
 DEVELOPER NOTES:
 
@@ -26,4 +32,3 @@ The project is divided into three main components:
 
 --Printer Module
 -Prints data objects to an output file in any desired format
-

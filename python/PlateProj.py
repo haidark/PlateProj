@@ -12,12 +12,15 @@ from Printer import printPlates
 from Parser import readXMLFile
 import sys, os.path
 
+files = list()
 if len(sys.argv) < 2:
 	print( '(-) USAGE: '+sys.argv[0]+' <xml file>')
 	print ('(-) This program takes a properly formatted xml file and transforms the data into a csv file.')
-	exit()
+	files.append(input('Enter a file name: '))
+else:
+	files = sys.argv[1:]
 
-for xmlFile in sys.argv[1:]:
+for xmlFile in files:
 	if not os.path.isfile(xmlFile):
 		print ('(--) ERROR: '+xmlFile+' does not exist.')
 		continue
@@ -25,7 +28,7 @@ for xmlFile in sys.argv[1:]:
 	fileName = os.path.splitext(xmlFile)[0]
 
 	print ("(+) Reading "+xmlFile+'...')
-	PlateList = readXMLFile(xmlFile)
-	print ("(+) Printing to "+fileName+'.csv...')
-	printPlates(PlateList, fileName+'.csv')
+	PlatesDict = readXMLFile(xmlFile)
+	print ('(+) Generating .csv files...')
+	printPlates(PlatesDict)
 print ("(++) Finished!")
